@@ -1,0 +1,9 @@
+[submodule "telegram-box-server"]
+	path = telegram-box-server
+	url = git@github.com:Land-Maze/telegram-box-server.git
+[submodule "telegram-box-web"]
+	path = telegram-box-web
+	url = git@github.com:Land-Maze/telegram-box-web.git
+[submodule "telegram-box-cli"]
+	path = telegram-box-cli
+	url = git@github.com:Land-Maze/telegram-box-cli.git
