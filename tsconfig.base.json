@@ -14,7 +14,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@/telegram-drive-router": [
+        "libs/telegram-drive/api/router/src/index.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

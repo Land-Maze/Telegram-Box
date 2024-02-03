@@ -2,10 +2,14 @@
   "name": "@telegram-drive/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "nx": "nx"
+  },
   "private": true,
   "dependencies": {
+    "@hono/node-server": "^1.7.0",
     "axios": "^1.0.0",
+    "hono": "^3.12.10",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
