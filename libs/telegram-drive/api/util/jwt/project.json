@@ -1,0 +1,30 @@
+{
+  "name": "telegram-drive-util-jwt",
+  "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/telegram-drive/api/util/jwt/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/telegram-drive/api/util/jwt",
+        "main": "libs/telegram-drive/api/util/jwt/src/index.ts",
+        "tsConfig": "libs/telegram-drive/api/util/jwt/tsconfig.lib.json",
+        "assets": ["libs/telegram-drive/api/util/jwt/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/telegram-drive/api/util/jwt/jest.config.ts"
+      }
+    }
+  },
+  "tags": []
+}

@@ -15,8 +15,14 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@/telegram-drive-middleware-auth": [
+        "libs/telegram-drive/api/middleware/auth/src/index.ts"
+      ],
       "@/telegram-drive-router": [
         "libs/telegram-drive/api/router/src/index.ts"
+      ],
+      "@/telegram-drive-util-jwt": [
+        "libs/telegram-drive/api/util/jwt/src/index.ts"
       ]
     }
   },

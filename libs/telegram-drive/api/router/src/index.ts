@@ -1,1 +1,1 @@
-export * from './lib/telegram-drive-router';
+export * from './lib/main';
