@@ -12,6 +12,7 @@
     "@prisma/client": "^5.9.1",
     "axios": "^1.0.0",
     "hono": "^3.12.10",
+    "jest-mock-extended": "^3.0.5",
     "tslib": "^2.3.0"
   },
   "devDependencies": {

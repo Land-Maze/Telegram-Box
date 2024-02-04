@@ -3,9 +3,8 @@
 
 generator client {
   provider = "prisma-client-js"
-  output = "../../../node_modules/@prisma/client/telegram-drive"
+  output = "../../../../../node_modules/@prisma/client/telegram-drive"
   previewFeatures = ["fullTextSearch", "fullTextIndex"]
-  binaryTargets   = ["native", "linux-musl-openssl-3.0.x"]
 }
 
 datasource db {
@@ -17,7 +16,12 @@ model User {
   id String @id @default(uuid()) @map("id")
 
   username String @unique @map("username")
+  role UserRole @default(USER) @map("role")
+  password String @map("password")
 
+  isActive Boolean @default(false) @map("is_active")
+
+  @@map("users")
 }
 
 enum UserRole {

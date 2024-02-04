@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@/telegram-drive-db": ["libs/telegram-drive/db/src/index.ts"],
       "@/telegram-drive-middleware-auth": [
         "libs/telegram-drive/api/middleware/auth/src/index.ts"
       ],
