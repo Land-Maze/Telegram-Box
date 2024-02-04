@@ -1,6 +1,9 @@
 import { Hono } from 'hono';
 import { prisma } from "@/telegram-drive-db";
 import { redis } from "@/telegram-drive-redis";
+import { zValidator } from '@hono/zod-validator';
+
+import { SigninJSONSchema } from './schema.js';
 
 // FIXME: This type is only for debugging purposes, it will be removed
 type SignUpBody = {
@@ -9,10 +12,29 @@ type SignUpBody = {
 }
 
 export const authRouter = new Hono()
-  .post('/signin', async (c) => {
+  .post('/signin', zValidator('json', SigninJSONSchema), async (c) => {
+    const body = c.req.valid('json');
+    const user = await prisma.user.findUnique({
+        where: {
+            username: body.username
+        }
+    });
+
+    if(!user) {
+        c.status(404);
+        return c.json({ message: 'User not found' });
+    }
+
+    if(user.password !== body.password) {
+        c.status(401);
+        return c.json({ message: 'Invalid password' });
+    }
+
+    // TODO: Generate JWT token
+    await redis.set('someTokenValue', user.id);
+
     c.status(200);
-    await redis.set('test', 'testValue');
-    return c.json({ message: 'Hello, World!', path: c.req.path });
+    return c.json({ message: 'Signed in!', user });
   })
   .post('/signup', async (c) => {
     const body = await c.req.json<SignUpBody>();
@@ -26,6 +48,10 @@ export const authRouter = new Hono()
             password: body.password
         }
     });
+
+    // TODO: Generate JWT token
+    await redis.set('someTokenValue', newUser.id);
+
     c.status(200);
     return c.json({ message: 'Created user', user: newUser});
   })
@@ -50,6 +76,5 @@ export const authRouter = new Hono()
         return c.json({ message: 'User not found' });
     }
     c.status(200);
-    console.log(await redis.get('test'));
     return c.json({ message: 'Found user!', user });
   });
