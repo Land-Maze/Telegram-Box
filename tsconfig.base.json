@@ -15,9 +15,13 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@/telegram-drive-api-env": ["libs/telegram-drive/api/env/src/index.ts"],
+      "@/telegram-drive-db": ["libs/telegram-drive/db/src/index.ts"],
       "@/telegram-drive-middleware-auth": [
         "libs/telegram-drive/api/middleware/auth/src/index.ts"
       ],
+      "@/telegram-drive-prisma": ["libs/telegram-drive/prisma/src/index.ts"],
+      "@/telegram-drive-redis": ["libs/telegram-drive/redis/src/index.ts"],
       "@/telegram-drive-router": [
         "libs/telegram-drive/api/router/src/index.ts"
       ],

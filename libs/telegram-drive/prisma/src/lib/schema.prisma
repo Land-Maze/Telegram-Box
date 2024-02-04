@@ -1,0 +1,30 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  output = "../../../../../node_modules/@prisma/client/telegram-drive"
+  previewFeatures = ["fullTextSearch", "fullTextIndex"]
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id String @id @default(uuid()) @map("id")
+
+  username String @unique @map("username")
+  role UserRole @default(USER) @map("role")
+  password String @map("password")
+
+  isActive Boolean @default(false) @map("is_active")
+
+  @@map("users")
+}
+
+enum UserRole {
+  ADMIN
+  USER
+}

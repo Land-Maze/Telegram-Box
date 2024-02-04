@@ -1,0 +1,23 @@
+{
+  "name": "telegram-drive-api-env",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/telegram-drive/api/env/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/telegram-drive/api/env/",
+        "main": "libs/telegram-drive/api/env//src/index.ts",
+        "tsConfig": "libs/telegram-drive/api/env//tsconfig.lib.json",
+        "assets": ["libs/telegram-drive/api/env/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    }
+  },
+  "tags": []
+}
