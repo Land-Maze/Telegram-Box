@@ -1,5 +1,7 @@
 #!/bin/sh
 
-source .env
-
-docker run --name $MYSQL_CONTAINER_NAME -e MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD -e MYSQL_DATABASE=$MYSQL_DATABASE_NAME -e MYSQL_ALLOW_EMPTY_PASSWORD=$MYSQL_ALLOW_EMPTY_PASSWORD -d -p 3306:3306 mysql:8
+docker run \
+--name mysql-telegram-drive \
+-e MYSQL_DATABASE=telegram-drive \
+-e MYSQL_ALLOW_EMPTY_PASSWORD=yes \
+-d -p 3306:3306 mysql:8

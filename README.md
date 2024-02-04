@@ -6,7 +6,8 @@ Run `npm install` to install all the dependencies.
 
 ## Start the app
 
-To start the development server run `npm run nx serve telegram-drive`. Open your browser and navigate to http://localhost:4200/. Happy coding!
+To start the development server run `npm run nx serve telegram-drive`.
+Endpoint to API is http://localhost:3000/.
 
 ## How to connect me
 

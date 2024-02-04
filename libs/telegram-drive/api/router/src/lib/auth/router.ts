@@ -1,5 +1,6 @@
 import { Hono } from 'hono';
 import { prisma } from "@/telegram-drive-db";
+import { redis } from "@/telegram-drive-redis";
 
 // FIXME: This type is only for debugging purposes, it will be removed
 type SignUpBody = {
@@ -10,6 +11,7 @@ type SignUpBody = {
 export const authRouter = new Hono()
   .post('/signin', async (c) => {
     c.status(200);
+    await redis.set('test', 'testValue');
     return c.json({ message: 'Hello, World!', path: c.req.path });
   })
   .post('/signup', async (c) => {
@@ -48,5 +50,6 @@ export const authRouter = new Hono()
         return c.json({ message: 'User not found' });
     }
     c.status(200);
+    console.log(await redis.get('test'));
     return c.json({ message: 'Found user!', user });
   });
