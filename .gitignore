@@ -40,6 +40,6 @@ Thumbs.db
 
 .nx/cache
 
-# environment file
-.env
-.env.development
+# Next.js
+.next
+out
