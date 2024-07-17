@@ -1,0 +1,33 @@
+{
+  "name": "env",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/api/env/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/api/env/",
+        "outputFileName": "main.js",
+        "main": "libs/api/env/src/index.ts",
+        "tsConfig": "libs/api/env/tsconfig.lib.json",
+        "assets": ["libs/api/env/*.md"],
+        "format": ["esm"]
+      },
+      "configurations": {
+        "development": {
+          "minify": false
+        },
+        "production": {
+          "minify": true
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    }
+  }
+}
