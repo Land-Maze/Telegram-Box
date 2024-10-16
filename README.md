@@ -20,3 +20,9 @@ Telegram box is a project that allows you to store your files in telegram chat. 
 - Compressing
 - Converting
 - Viewing
+
+## How to run development environment
+```bash
+npm install
+npx nx run api:serve 
+```

@@ -19,6 +19,7 @@ if (!parsedEnv.success) {
 }
 
 export const env = parsedEnv;
+
 declare global {
   namespace NodeJS {
     interface ProcessEnv extends z.infer<typeof APIEnvSchema> {}

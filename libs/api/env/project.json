@@ -8,13 +8,14 @@
     "build": {
       "executor": "@nx/esbuild:esbuild",
       "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/libs/api/env/",
-        "outputFileName": "main.js",
+        "outputPath": "dist/libs/api/env",
         "main": "libs/api/env/src/index.ts",
+        "outputFileName": "main.js",
         "tsConfig": "libs/api/env/tsconfig.lib.json",
         "assets": ["libs/api/env/*.md"],
-        "format": ["esm"]
+        "platform": "node"
       },
       "configurations": {
         "development": {

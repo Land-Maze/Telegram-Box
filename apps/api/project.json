@@ -10,10 +10,12 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
+        "skipTypeCheck": false,
         "platform": "node",
         "outputPath": "dist/apps/api",
         "format": ["esm"],
-        "bundle": false,
+        "thirdParty": false,
+        "bundle": true,
         "main": "apps/api/src/main.ts",
         "tsConfig": "apps/api/tsconfig.app.json",
         "assets": ["apps/api/src/assets"],
